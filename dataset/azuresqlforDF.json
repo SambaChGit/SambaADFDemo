@@ -1,0 +1,17 @@
+{
+	"name": "azuresqlforDF",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_pivot_sql",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "sales",
+			"table": "PivotedFactSales"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

@@ -1,0 +1,9 @@
+{
+	"name": "SambaADFBIAll",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "ec5a7f49-2074-43f3-adc1-6bded50f5b46",
+		"tenantId": "1a322ef8-a770-4741-ab4c-2f552a555519"
+	}
+}
