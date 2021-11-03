@@ -1,0 +1,35 @@
+{
+	"name": "dataflow1",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "DF_EXcel",
+						"type": "DatasetReference"
+					},
+					"name": "excelsrc"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "azuresqlforDF",
+						"type": "DatasetReference"
+					},
+					"name": "sink1"
+				}
+			],
+			"transformations": [
+				{
+					"name": "selectedColumns"
+				},
+				{
+					"name": "CustConcat"
+				}
+			],
+			"script": "source(output(\n\t\t{Row ID} as string,\n\t\t{Order Priority} as string,\n\t\tDiscount as string,\n\t\t{Unit Price} as string,\n\t\t{Shipping Cost} as string,\n\t\t{Customer ID} as string,\n\t\t{Customer Name} as string,\n\t\t{Ship Mode} as string,\n\t\t{Customer Segment} as string,\n\t\t{Product Category} as string,\n\t\t{Product Sub-Category} as string,\n\t\t{Product Container} as string,\n\t\t{Product Name} as string,\n\t\t{Product Base Margin} as string,\n\t\tCountry as string,\n\t\tRegion as string,\n\t\t{State or Province} as string,\n\t\tCity as string,\n\t\t{Postal Code} as string,\n\t\t{Order Date} as string,\n\t\t{Ship Date} as string,\n\t\tProfit as string,\n\t\t{Quantity ordered new} as string,\n\t\tSales as string,\n\t\t{Order ID} as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> excelsrc\nexcelsrc select(mapColumn(\n\t\t{Order Priority},\n\t\tDiscount,\n\t\t{Unit Price},\n\t\t{Shipping Cost},\n\t\t{Customer ID},\n\t\t{Customer Name},\n\t\t{Product Category},\n\t\t{Product Sub-Category},\n\t\t{Product Name},\n\t\tCountry,\n\t\t{State or Province},\n\t\tCity,\n\t\t{Order Date},\n\t\tSales,\n\t\t{Order ID}\n\t),\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true) ~> selectedColumns\nselectedColumns derive(Custmer_ID_Name = concat(concat({Customer ID}, '-'),{Customer Name})) ~> CustConcat\nCustConcat sink(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tdeletable:false,\n\tinsertable:true,\n\tupdateable:false,\n\tupsertable:false,\n\tformat: 'table',\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true,\n\terrorHandlingOption: 'stopOnFirstError') ~> sink1"
+		}
+	}
+}

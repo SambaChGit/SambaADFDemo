@@ -1,0 +1,17 @@
+{
+	"name": "FileServer1",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "FileServer",
+		"typeProperties": {
+			"host": "C:\\excel inut",
+			"userId": "CHEEDELLA",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiJiMGY3ZmY4Zi03OWJjLTQ4MDUtYTI4MC0yNDgwNTM1MTI0MWYiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "onpremIR",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}

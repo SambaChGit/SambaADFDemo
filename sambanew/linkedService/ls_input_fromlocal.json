@@ -1,0 +1,22 @@
+{
+	"name": "ls_input_fromlocal",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"parameters": {
+			"sourcecontainer": {
+				"type": "String"
+			}
+		},
+		"annotations": [],
+		"type": "FileServer",
+		"typeProperties": {
+			"host": "@{linkedService().sourcecontainer}",
+			"userId": "CHEEDELLA",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiJjMmM4NjY5ZS0yODU5LTRkNzUtODM3MS03NzAwY2Q5YTZmOTkiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "onpremIR",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}

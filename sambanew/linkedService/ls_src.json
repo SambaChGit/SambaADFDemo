@@ -1,0 +1,16 @@
+{
+	"name": "ls_src",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "SqlServer",
+		"typeProperties": {
+			"connectionString": "integrated security=False;data source=DESKTOP-Q6FLUOH\\SQLEXPRESS;initial catalog=AdventureWorks2019;user id=sambaadmin",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiI5YzFkYjAxMS03NzRlLTRmYTItOTk5Mi04NzlhYjBiYzIwZDUiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "onpremIR",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}

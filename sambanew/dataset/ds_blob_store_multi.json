@@ -1,0 +1,29 @@
+{
+	"name": "ds_blob_store_multi",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_blb_multifile_output",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"folderPath": "output2",
+				"container": "sqlazuredata"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "Row ID\tOrder Priority\tDiscount\tUnit Price\tShipping Cost\tCustomer ID\tCustomer Name\tShip Mode\tCustomer Segment\tProduct Category\tProduct Sub-Category\tProduct Container\tProduct Name\tProduct Base Margin\tCountry\tRegion\tState or Province\tCity\tPostal Code\tOrder Date\tShip Date\tProfit\tQuantity ordered new\tSales\tOrder ID",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
